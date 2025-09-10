@@ -156,6 +156,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+sandbox
+backup
 
 # Spyder project settings
 .spyderproject
