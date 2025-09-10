@@ -14,7 +14,7 @@ def index():
 def orbita():
     a = 17.8 * AU
     e = 0.967
-    x, y = calcular_orbita(a, e, n_points=400, theta0=3)
+    x, y = calcular_orbita(a, e, n_points=400)
 
     data = {
         "a": a,
