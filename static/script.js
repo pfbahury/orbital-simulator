@@ -35,34 +35,60 @@ async function carregarOrbita(data) {
   }));
 
   const layout = {
-    title: `Órbita (e=${data.e.toFixed(3)})`,
-    xaxis: { scaleanchor: "y" },
-    paper_bgcolor: '#eaedf7',
+    // title: `Órbita (e=${data.e.toFixed(3)})`,
+    xaxis: { scaleanchor: "y", color: 'white' },
+    yaxis: { color: 'white' },
+    paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: '#040c24',
-    //  font: { color: "white" },
+    font: { color: "black" },
+    legend: {
+      font: { color: "white"}
+    },
     updatemenus: [{
       type: "buttons",
-      x: 0.5,         // posição horizontal (0 = esquerda, 1 = direita)
-      y: -0.2,        // posição vertical (negativo = fora do gráfico, embaixo)
+      direction: "left",
+      x: 0.5,
       xanchor: "center",
+      y: -0.2,
       yanchor: "top",
-      direction: "left",   // botões lado a lado
+      pad: { r: 10, t: 10 },
+      
+      bgcolor: "white",       
+      bordercolor: "rgba(255,255,255,0.3)",
+      borderwidth: 1,
+      
       buttons: [
         {
           label: "▶ Play",
           method: "animate",
           args: [null, {
             frame: { duration: 30, redraw: true },
-            fromcurrent: true,
+            // fromcurrent: true,
             transition: { duration: 0 }
           }],
-          pad: { l: 0, r: 20, t: 0, b: 0 } 
+          // Estilização específica do botão Play
+          bgcolor: "#28a745",              // verde
+          bordercolor: "#1e7e34",          // borda verde escura
+          borderwidth: 2,
+          font: { 
+            size: 16, 
+            color: "white",
+            family: "Arial, sans-serif"   // família da fonte
+          }
         },
         {
           label: "⏸ Pause",
           method: "animate",
           args: [[null], { frame: { duration: 0 }, mode: "immediate" }],
-          pad: { l: 20, r: 0, t: 0, b: 0 } // adiciona espaço à esquerda
+          // Estilização específica do botão Pause
+          bgcolor: "#dc3545",              // vermelho
+          bordercolor: "#c82333",          // borda vermelha escura
+          borderwidth: 2,
+          font: { 
+            size: 16, 
+            color: "white",
+            family: "Arial, sans-serif"   // família da fonte
+          }
         }
       ]
     }]
@@ -145,7 +171,6 @@ async function startApp(){
 
   btnOrbita.addEventListener('click', fetchOrbita);
   btnVelocidade.addEventListener('click', fetchVelocidade);
-
   carregarOrbita(data);
 }
 
