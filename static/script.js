@@ -39,8 +39,16 @@ async function carregarOrbita() {
       const layout = {
         title: `Órbita (e=${data.e.toFixed(3)})`,
         xaxis: { scaleanchor: "y" },
+        paper_bgcolor: '#eaedf7',
+        plot_bgcolor: '#040c24',
+        //  font: { color: "white" },
         updatemenus: [{
           type: "buttons",
+          x: 0.5,         // posição horizontal (0 = esquerda, 1 = direita)
+          y: -0.2,        // posição vertical (negativo = fora do gráfico, embaixo)
+          xanchor: "center",
+          yanchor: "top",
+          direction: "left",   // botões lado a lado
           buttons: [
             {
               label: "▶ Play",
@@ -49,16 +57,19 @@ async function carregarOrbita() {
                 frame: { duration: 30, redraw: true },
                 fromcurrent: true,
                 transition: { duration: 0 }
-              }]
+              }],
+              pad: { l: 0, r: 20, t: 0, b: 0 } 
             },
             {
               label: "⏸ Pause",
               method: "animate",
-              args: [[null], { frame: { duration: 0 }, mode: "immediate" }]
+              args: [[null], { frame: { duration: 0 }, mode: "immediate" }],
+              pad: { l: 20, r: 0, t: 0, b: 0 } // adiciona espaço à esquerda
             }
           ]
         }]
       };
+
 
       Plotly.newPlot("grafico", [orbit, sun, comet], layout).then(() => {
         Plotly.addFrames("grafico", frames);

@@ -8,7 +8,10 @@
 }
 
 html{
-    --main-clr: #6557D2;
+    --main-clr: #3a4c7a;
+    --background-clr: #96a5d9;
+    --border-clr: #dee3f3;
+    --graphc-clr: #eaedf7;
 }
 
 body {
@@ -16,16 +19,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6557d260;
+    background-color: var(--background-clr);
 }
 
 .main{
     display: flex;
-    /* border: 1px solid #f3f3f3; */
+    border: 1px solid #e4e8f5;
     /* padding: 0.6rem; */
-    border-radius: 6px;
+    border-radius: 8px;
     gap: 1rem;
+    background-color: #eaedf7;
+
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
     background-color: white;
+    box-shadow: 5px 0px 10px -4px rgba(0,0,0,0.2);
+    border-radius: 8px;
 }
 
 .form-header {
@@ -37,6 +49,33 @@ body {
     color: rgba(0,0,0,.6);
     border-bottom: 1px solid rgba(0, 0, 0, 0.336);
 }
+
+.form-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.form-body form {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-container input {
+    padding: 0.4rem;
+    border: 1px solid var(--border-clr);
+    border-radius: 5px;
+}
+
 
 .chart {
     width:800px;

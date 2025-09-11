@@ -2,17 +2,30 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Órbita</title>
+  <title>Simulador Órbita</title>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <main class="main">
-        <div class="form-header">
-            <h1>Simulador Gravitacional</h1>
-        </div>
-        <div>
 
+        <div class="form-container">
+          <div class="form-header">
+              <h1>Simulador Orbital  <img src="{{ url_for('static', filename='/images/moon-orbit.svg') }}" width="32px" height="32px" alt="moon-orbit"  ></h1>
+          </div>
+          
+          <div class="form-body">
+            <form action="" method="get">
+              <div class="input-container">
+                <label for="massaCorporal">Massa do Corpo Central</label>
+                <input type="text" name="massaCorporal" id="massaCorporal">
+              </div>
+              <div class="input-container">
+                <label for="massaCorporal">Massa do Corpo Central</label>
+                <input type="text" name="massaCorporal" id="massaCorporal">
+              </div>
+            </form>
+          </div>
         </div>
 
         <div class="chartContainer">
