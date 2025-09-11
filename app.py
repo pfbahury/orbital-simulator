@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 import numpy as np
-from orbita import calcular_orbita, AU, M_S
+from orbita import calcular_orbita, AU, M_S, calcular_velocidades
 
 app = Flask(__name__)
 
@@ -37,3 +37,31 @@ def orbita():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+@app.route("/velocidades")
+def velocidades():
+    try:
+        # Lê os parâmetros da query
+        massa = request.args.get("massaCorporal", type=float, default=1.99e30)
+        e = request.args.get("excentricidade", type=float, default=0.967)
+        a = request.args.get("semieixo", type=float, default=17.8) * AU
+
+        # Calcula
+        resultado = calcular_velocidades(massa, a, e)
+
+        # Converte velocidades para km/s e distâncias para km antes de retornar
+        resposta = {
+            "tipo": resultado["tipo"],
+            "v_perielio_kms": resultado["v_perielio"] / 1000,
+            "r_perielio_km": resultado["r_perielio"] / 1000
+        }
+
+        if resultado["tipo"] == "eliptica":
+            resposta["v_afelio_kms"] = resultado["v_afelio"] / 1000
+            resposta["r_afelio_km"] = resultado["r_afelio"] / 1000
+
+        return jsonify(resposta)
+
+    except Exception as err:
+        return jsonify({"error": str(err)}), 400
