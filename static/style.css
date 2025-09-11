@@ -7,6 +7,19 @@
     padding: 0;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    /* appearance: unset; */
+}
+
 html{
     --main-clr: #3a4c7a;
     --background-clr: #96a5d9;
@@ -50,6 +63,13 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.336);
 }
 
+.form-header h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem;
+}
+
 .form-body {
     height: 100%;
     display: flex;
@@ -70,14 +90,40 @@ body {
     width: 100%;
 }
 
-.input-container input {
+.div-btns {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.4rem;
+    cursor: pointer;
+    border: 1px solid var(--border-clr);
+    border-radius: 8px;
+}
+
+#btnOrbita {
+    background-color: #1e2b54;
+    color: white;
+}
+
+#btnVelocidade{
+    background-color: #4863bd;
+    color: white;
+}
+
+input,
+select {
     padding: 0.4rem;
     border: 1px solid var(--border-clr);
     border-radius: 5px;
+    background-color: white;
 }
-
 
 .chart {
     width:800px;
     height:600px;
 }
+
