@@ -97,6 +97,43 @@ async function fetchOrbita(e) {
   const data = await resp.json()
 
   carregarOrbita(data);
+}
+
+async function fetchVelocidade(e) {
+  e.preventDefault();
+  
+  // Pega os valores do formulário
+  const massaCorporal = document.getElementById("massaCorporal").value;
+  const excentricidade = document.getElementById("excentricidade").value;
+  const semieixo = document.getElementById("semieixo").value;
+
+  // Monta query params
+  const params = new URLSearchParams({
+    massaCorporal,
+    excentricidade,
+    semieixo
+  });
+
+  // Faz requisição para a rota Flask
+  const resp = await fetch(`/velocidades?${params.toString()}`);
+  const data = await resp.json();
+
+  if (data.error) {
+    alert("Erro: " + data.error);
+    return;
+  }
+
+  // Monta a mensagem
+  let msg = `Tipo de Órbita: ${data.tipo}\n`;
+  msg += `Velocidade no Periélio: ${data.v_perielio_kms.toFixed(2)} km/s\n`;
+  msg += `Distância no Periélio: ${data.r_perielio_km.toExponential(2)} km\n`;
+
+  if (data.tipo === "eliptica") {
+    msg += `Velocidade no Afélio: ${data.v_afelio_kms.toFixed(2)} km/s\n`;
+    msg += `Distância no Afélio: ${data.r_afelio_km.toExponential(2)} km\n`;
+  }
+
+  alert(msg);
 
 }
 
@@ -104,9 +141,10 @@ async function startApp(){
   const resp = await fetch("/orbita");
   const data = await resp.json();
   const btnOrbita = document.querySelector('#btnOrbita');
+  const btnVelocidade = document.querySelector('#btnVelocidade');
 
-  btnOrbita.addEventListener('click', fetchOrbita)
-  
+  btnOrbita.addEventListener('click', fetchOrbita);
+  btnVelocidade.addEventListener('click', fetchVelocidade);
 
   carregarOrbita(data);
 }
