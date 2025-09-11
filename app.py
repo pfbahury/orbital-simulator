@@ -35,10 +35,6 @@ def orbita():
     except Exception as err:
         return jsonify({"error": str(err)}), 400
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
 @app.route("/velocidades")
 def velocidades():
     try:
@@ -65,3 +61,7 @@ def velocidades():
 
     except Exception as err:
         return jsonify({"error": str(err)}), 400
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
