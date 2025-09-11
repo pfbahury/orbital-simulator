@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simulador Órbita</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="main">
+
+        <div class="form-container">
+          <div class="form-header">
+              <h1>Simulador Orbital  <img src="{{ url_for('static', filename='/images/moon-orbit.svg') }}" width="32px" height="32px" alt="moon-orbit"  ></h1>
+          </div>
+          
+          <div class="form-body">
+            <form action="" method="get">
+
+              <div class="input-container">
+                <label for="massaCorporal">Massa do Corpo Central</label>
+                <select type="text" name="massaCorporal" id="massaCorporal">
+                  <option value="1.99e30">Sol</option>
+                  <option value="5.97e24">Terra</option>
+                  <option value="7.35e22">Lua</option>
+                  <option value="None">Outro</option>
+                </select>
+              </div>
+
+              <div class="input-container">
+                <label for="excentricidade">Excentricidade</label>
+                <input type="number" name="excentricidade" id="excentricidade" value="0.967" step="0.0001">
+              </div>
+              <div class="input-container">
+                <label for="semieixo">Semi-Eixo Maior(m)</label>
+                <input type="number" name="semieixo" id="semieixo" value="17.8" step="0.0001">
+              </div>
+              <div class="input-container">
+                <label for="angulo">Ângulo do Perielo (rad)</label>
+                <input type="number" name="angulo" id="angulo" value="0" step="0.0001">
+              </div>
+              <div class="input-container">
+                <label for="numPontos">Número de Pontos</label>
+                <input type="number" name="numPontos" id="numPontos" value="400" max="400">
+              </div>
+
+              <div class="div-btns">
+                <button class="btn" id="btnOrbita">Simular Órbita</button>
+                <button class="btn" id="btnVelocidade">Calcular Velocidades</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="chartContainer">
+            <div id="grafico" class="chart"></div>
+        </div>
+    </main>
+        
+    
+    
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
