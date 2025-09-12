@@ -33,9 +33,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: var(--background-clr); */
+    background-color: #040c24;
     background-image: url('./images/background.png');
-    background-size: 100%;
+    background-size: cover; 
     background-repeat: no-repeat;
 }
 
@@ -47,7 +47,6 @@ body {
     gap: 1rem;
     background-color: rgba(0, 0, 0, 0);
     margin-top: 7rem;
-
 }
 
 .form-container {
