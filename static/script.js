@@ -1,5 +1,47 @@
 async function carregarOrbita(data) {
-      
+  const massaCorporal = document.getElementById(`massaCorporal`).value;
+  let body
+
+  switch (massaCorporal) {
+    case "1.99e30":
+        body = {
+          x: [0],
+          y: [0],
+          mode: "markers",
+          marker: { size: 15, color: "yellow", line: { color: "orange", width: 2 } },
+          name: "Sol"
+        };
+      break;
+    case "5.97e24":
+        body = {
+          x: [0],
+          y: [0],
+          mode: "markers",
+          marker: { size: 10, color: "blue", line: { color: "green", width: 2 } },
+          name: "Terra"
+        };
+      break;
+    case "7.35e22":
+        body = {
+          x: [0],
+          y: [0],
+          mode: "markers",
+          marker: { size: 5, color: "white" },
+          name: "Lua"
+        };
+      break;
+  
+    default:
+      body = {
+        x: [0],
+        y: [0],
+        mode: "markers",
+        marker: { size: 15, color: "gray" },
+        name: "Outro"
+      };
+      break;
+  }
+  
   const orbit = {
     x: data.frames.map(f => f.x),
     y: data.frames.map(f => f.y),
@@ -14,14 +56,6 @@ async function carregarOrbita(data) {
     mode: "markers",
     marker: { size: 10, color: "darkred" },
     name: "Cometa"
-  };
-
-  const sun = {
-    x: [0],
-    y: [0],
-    mode: "markers",
-    marker: { size: 15, color: "yellow", line: { color: "orange", width: 2 } },
-    name: "Sol"
   };
 
   // frames só para o cometa
@@ -95,7 +129,7 @@ async function carregarOrbita(data) {
   };
 
 
-  Plotly.newPlot("grafico", [orbit, sun, comet], layout).then(() => {
+  Plotly.newPlot("grafico", [orbit, body, comet], layout).then(() => {
     Plotly.addFrames("grafico", frames);
   });
 }
