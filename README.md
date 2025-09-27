@@ -56,6 +56,21 @@ py app.py
 
 Após executar o comando, abra seu navegador e acesse `http://localhost:5000` para usar a aplicação.
 
+## Alternativa utilizando arquivos de scripts automático
+
+## Windows
+1. Clique duas vezes em `run.bat`
+2. Aguarde o setup automático
+3. Acesse: http://localhost:5000
+
+## Linux/Mac
+1. Execute: `chmod +x run.sh && ./run.sh`
+2. Acesse: http://localhost:5000
+
+## Com Docker
+1. Execute: `docker-compose up`
+2. Acesse: http://localhost:5000
+
 ## 🛠️ Tecnologias Utilizadas
 
 - Python (Flask)

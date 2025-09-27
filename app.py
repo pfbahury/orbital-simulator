@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, render_template, request
 import numpy as np
 from orbita import calcular_orbita, AU, M_S, calcular_velocidades
+import webbrowser
+import threading
+import time
 
 app = Flask(__name__)
 
@@ -64,4 +67,18 @@ def velocidades():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = 5000
+    url = f"http://localhost:{port}"
+    
+    print("="*40)
+    print("🚀 Iniciando Flask App")
+    print(f"📍 {url}")
+    print("🌐 Abrindo navegador...")
+    print("="*40)
+    
+    # Abre o navegador após 1.5 segundos
+    timer = threading.Timer(1.5, lambda: webbrowser.open(url))
+    timer.daemon = True
+    timer.start()
+    
+    app.run(debug=True, port=port)
