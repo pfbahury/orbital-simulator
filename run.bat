@@ -2,7 +2,7 @@
 echo Configurando ambiente...
 
 REM Verifica se Python está instalado
-python --version >nul 2>&1
+py --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo Python não encontrado! Por favor, instale Python primeiro.
     pause
@@ -12,7 +12,7 @@ if %errorlevel% neq 0 (
 REM Cria venv se não existir
 if not exist "venv" (
     echo Criando ambiente virtual...
-    python -m venv venv
+    py -m venv venv
 )
 
 REM Ativa o venv
@@ -25,6 +25,6 @@ pip install -r requirements.txt
 
 REM Roda a aplicação
 echo Iniciando aplicação...
-python app.py
+py app.py
 
 pause
