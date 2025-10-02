@@ -1,30 +1,27 @@
 @echo off
-echo Configurando ambiente...
+echo ====================================
+echo Building OrbitaApp.exe
+echo ====================================
+echo.
 
-REM Verifica se Python está instalado
-py --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Python não encontrado! Por favor, instale Python primeiro.
-    pause
-    exit /b 1
-)
-
-REM Cria venv se não existir
-if not exist "venv" (
-    echo Criando ambiente virtual...
-    py -m venv venv
-)
-
-REM Ativa o venv
-echo Ativando ambiente virtual...
+REM Activate virtual environment
 call venv\Scripts\activate.bat
 
-REM Instala dependências
-echo Instalando dependências...
-pip install -r requirements.txt
+REM Install PyInstaller if not installed
+pip install pyinstaller
 
-REM Roda a aplicação
-echo Iniciando aplicação...
-py app.py
+REM Clean previous builds
+if exist build rmdir /s /q build
+if exist dist rmdir /s /q dist
+
+REM Build the executable
+pyinstaller app.spec
+
+echo.
+echo ====================================
+echo Build complete!
+echo Executable is in: dist\OrbitaApp.exe
+echo ====================================
+echo.
 
 pause
