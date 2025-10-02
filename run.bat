@@ -17,7 +17,7 @@ if not exist "venv" (
 
 REM Ativa o venv
 echo Ativando ambiente virtual...
-call venv\Scripts\activate.bat
+call .\venv\Scripts\activate
 
 REM Instala dependências
 echo Instalando dependências...
