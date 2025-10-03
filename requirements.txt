@@ -3,3 +3,4 @@ matplotlib
 scipy
 flask
 plotly
+pyinstaller

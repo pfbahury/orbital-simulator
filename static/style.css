@@ -78,6 +78,7 @@ body {
     flex-direction: column;
     padding: 1rem;
     justify-content: center;
+    position: relative;
 }
 
 .form-body form {
@@ -131,3 +132,12 @@ select {
     top: 4.5rem;
 }
  
+.github{
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    right: 50%;
+}

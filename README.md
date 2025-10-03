@@ -1,30 +1,49 @@
 # Simulação de Órbitas
 
-Uma aplicação web para simulação e visualização de órbitas planetárias e cometárias com animações interativas.
+Uma aplicação web para simulação e visualização de órbitas planetárias e cometárias com animações interativas, os scripts de simulação orbital foram criadas pelo aluno de mestrado Thiago Marques da Silva.
+
+**🔗 Código fonte:** [github.com/pfbahury/orbital-simulator](https://github.com/pfbahury/orbital-simulator)
 
 ## 📋 Requisitos
 
 - Python 3.7 ou superior
 
-## 🚀 Instalação
+## 🚀 Como Usar
 
-### Opção 1: Clone via Git
+### Opção 1: Executável (Mais Fácil - Recomendado)
+
+**Para usuários que querem apenas usar a aplicação:**
+
+1. Baixe o arquivo executável da seção [Releases](https://github.com/pfbahury/orbital-simulator/releases)
+   - **Windows:** `OrbitaApp.exe`
+   - **Linux/Mac:** `OrbitaApp`
+2. Dê duplo clique no arquivo
+3. Aguarde o navegador abrir automaticamente
+4. Pronto! A aplicação estará rodando em `http://localhost:5000`
+
+> **Nota:** O executável não precisa de Python instalado e funciona offline. Na primeira execução pode demorar alguns segundos para iniciar.
+
+### Opção 2: Executar via Python (Para Desenvolvedores)
+
+#### 1. Clone ou baixe o repositório
+
+**Via Git:**
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/pfbahury/orbital-simulator.git
+cd orbital-simulator
 ```
 
-### Opção 2: Download direto
-Baixe o repositório diretamente do GitHub clicando no botão "Code" → "Download ZIP" e extraia os arquivos.
+**Via Download:**
+Baixe o repositório clicando em "Code" → "Download ZIP" e extraia os arquivos.
 
-## ⚙️ Configuração
+#### 2. Criar ambiente virtual (recomendado)
 
-### 1. Criar ambiente virtual (recomendado)
 ```bash
 python -m venv venv
 ```
 
-### 2. Ativar o ambiente virtual
+#### 3. Ativar o ambiente virtual
+
 **Linux/Mac:**
 ```bash
 source venv/bin/activate
@@ -35,41 +54,50 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-### 3. Instalar dependências
+#### 4. Instalar dependências
+
 ```bash
 pip install -r requirements.txt
 ```
 
-## ▶️ Execução
+#### 5. Executar a aplicação
 
 **Linux/Mac:**
 ```bash
-python3 app.py
+python3 main.py
 ```
 
 **Windows:**
 ```bash
-python app.py
-# ou
-py app.py
+python main.py
 ```
 
-Após executar o comando, abra seu navegador e acesse `http://localhost:5000` para usar a aplicação.
+O navegador abrirá automaticamente em `http://localhost:5000`
 
-## Alternativa utilizando arquivos de scripts automático
+### Opção 3: Docker
 
-## Windows
-1. Clique duas vezes em `run.bat`
-2. Aguarde o setup automático
-3. Acesse: http://localhost:5000
+```bash
+docker-compose up
+```
 
-## Linux/Mac
-1. Execute: `chmod +x run.sh && ./run.sh`
-2. Acesse: http://localhost:5000
+Acesse: `http://localhost:5000`
 
-## Com Docker
-1. Execute: `docker-compose up`
-2. Acesse: http://localhost:5000
+## 🔨 Compilar o Executável (Para Desenvolvedores)
+
+Se você quiser compilar o executável você mesmo:
+
+**Windows:**
+```bash
+build.bat
+```
+
+**Linux/Mac:**
+```bash
+chmod +x build.sh
+./build.sh
+```
+
+O executável será gerado na pasta `dist/`
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -77,3 +105,16 @@ Após executar o comando, abra seu navegador e acesse `http://localhost:5000` pa
 - JavaScript (Plotly.js)
 - HTML/CSS
 - NumPy & SciPy
+- PyInstaller (para executáveis)
+
+## 📝 Licença
+
+Este projeto está disponível como código aberto. Sinta-se livre para usar, modificar e distribuir.
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests no [repositório do GitHub](https://github.com/pfbahury/orbital-simulator).
+
+---
+
+**⚠️ Nota sobre o Executável:** Alguns antivírus podem sinalizar o arquivo executável como suspeito. Isso é um falso positivo comum com aplicações PyInstaller. O código fonte está disponível para verificação no GitHub.
