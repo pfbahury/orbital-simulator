@@ -2,8 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Simulador Órbita</title>
+  <title>Simulador Orbital</title>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/images/planet.ico') }}">
+  <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -47,6 +49,9 @@
               <div class="div-btns">
                 <button class="btn" id="btnOrbita">Simular Órbita</button>
                 <button class="btn" id="btnVelocidade">Calcular Velocidades</button>
+              </div>
+              <div class="github">
+                <a href="https://github.com/pfbahury/orbital-simulator"><i class='bxl bx-github'></i></a> 
               </div>
             </form>
           </div>
