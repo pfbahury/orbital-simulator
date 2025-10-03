@@ -7,8 +7,8 @@ echo.
 REM Activate virtual environment
 call venv\Scripts\activate.bat
 
-REM Install PyInstaller if not installed
-pip install pyinstaller
+REM Install depedencies if not installed
+pip install -r requirements.txt
 
 REM Clean previous builds
 if exist build rmdir /s /q build

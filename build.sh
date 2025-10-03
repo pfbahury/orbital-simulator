@@ -9,7 +9,7 @@ echo
 source venv/bin/activate
 
 # Install PyInstaller if not installed
-pip install pyinstaller
+pip install -r requirements.txt
 
 # Clean previous builds
 rm -rf build dist
