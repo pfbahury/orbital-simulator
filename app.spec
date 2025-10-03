@@ -43,5 +43,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='planet.ico',  # Add your icon path here if you have one: icon='icon.ico'
+    icon=None,  # Add your icon path here if you have one: icon='icon.ico'
 )
