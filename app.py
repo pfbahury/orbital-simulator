@@ -77,4 +77,4 @@ if __name__ == "__main__":
     timer.start()
    
     # IMPORTANT: use_reloader=False for PyInstaller
-    app.run(debug=False, port=port, use_reloader=False)
+    app.run(debug=False, host='0.0.0.0', port=port, use_reloader=False)
